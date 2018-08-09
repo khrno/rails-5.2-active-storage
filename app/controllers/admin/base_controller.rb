@@ -6,10 +6,9 @@ class Admin::BaseController < ApplicationController
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
       if Rails.env == 'development'
-        Rails.logger.debug 'ACA'
-        username == 'root'
+        username == ENV['ADMIN_USER']
       else
-        username == 'root' && password == 'BpVmN0oS%10ioBF'
+        username == ENV['ADMIN_USER'] && password == ENV['ADMIN_PASSWORD']
       end
     end
   end
