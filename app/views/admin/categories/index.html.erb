@@ -13,32 +13,20 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Excerp</th>
+        <th scope="col">Description</th>
         <th scope="col" colspan="2">Manage</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>Edit</td>
-        <td>Delete</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>Edit</td>
-        <td>Delete</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>Edit</td>
-        <td>Delete</td>
-      </tr>
+      <% @categories.each do |category| %>
+        <tr>
+          <th scope="row"><%= category.id %></th>
+          <td><%= category.name %></td>
+          <td><%= category.description %></td>
+          <td>Edit</td>
+          <td>Delete</td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </div>

@@ -2,6 +2,7 @@ class Admin::BaseController < ApplicationController
   layout 'admin/base'
   
   before_action :authenticate
+  before_action :current_tab
 
   private
 

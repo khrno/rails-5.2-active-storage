@@ -1,9 +1,10 @@
 class Admin::PostsController < Admin::BaseController
-  def initialize
-    super
-    @current_tab = 'posts'
+  def index
   end
 
-  def index
+  private
+
+  def current_tab
+    @current_tab = 'posts'
   end
 end
