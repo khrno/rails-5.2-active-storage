@@ -1,5 +1,6 @@
 class Admin::CategoriesController < Admin::BaseController
   before_action :load_categories, only: :index
+  before_action :load_category, only: [:edit, :update]
 
   def index
   end
@@ -11,9 +12,22 @@ class Admin::CategoriesController < Admin::BaseController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to action: 'index', notice: "The category was created!"
+      flash[:success] = 'The cateogry was created!'
+      redirect_to action: 'index'
     else
       render 'index'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @category.update(category_params)
+      flash[:success] = 'Update successful!'
+      redirect_to action: 'index'
+    else
+      render 'edit'
     end
   end
 
@@ -29,5 +43,10 @@ class Admin::CategoriesController < Admin::BaseController
 
   def load_categories
     @categories = Category.all
+  end
+
+  def load_category
+    @category = Category.where(id: params[:id]).take
+    not_found unless @category
   end
 end
