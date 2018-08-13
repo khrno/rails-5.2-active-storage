@@ -1,6 +1,6 @@
 class Admin::CategoriesController < Admin::BaseController
   before_action :load_categories, only: :index
-  before_action :load_category, only: [:edit, :update]
+  before_action :load_category, only: [:edit, :update, :destroy]
 
   def index
   end
@@ -29,6 +29,12 @@ class Admin::CategoriesController < Admin::BaseController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @category.destroy
+    flash[:success] = 'Category destroyed !'
+    redirect_to action: 'index'
   end
 
   private

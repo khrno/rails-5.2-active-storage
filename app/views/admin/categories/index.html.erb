@@ -24,7 +24,7 @@
           <td><%= category.name %></td>
           <td><%= category.description %></td>
           <td><%= link_to 'edit', edit_admin_category_path(id: category.id) %></td>
-          <td>Delete</td>
+          <td><%= link_to 'delete', admin_category_path(id: category.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
