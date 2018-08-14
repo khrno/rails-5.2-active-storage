@@ -31,6 +31,12 @@ class Admin::PostsController < Admin::BaseController
     end
   end
 
+  def destroy
+    @post.destroy
+    flash[:success] = 'Post destroyed !'
+    redirect_to action: 'index'
+  end
+
   private
 
   def post_params
