@@ -1,5 +1,6 @@
 class Admin::PostsController < Admin::BaseController
   before_action :load_posts, only: :index
+  before_action :load_post, only: [:edit, :update, :destroy]
 
   def index
   end
@@ -18,6 +19,18 @@ class Admin::PostsController < Admin::BaseController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @post.update(post_params)
+      flash[:success] = 'Update successful!'
+      redirect_to action: 'index'
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def post_params
@@ -30,5 +43,10 @@ class Admin::PostsController < Admin::BaseController
 
   def load_posts
     @posts = Post.all
+  end
+
+  def load_post
+    @post = Post.where(id: params[:id]).take
+    not_found unless @post
   end
 end
