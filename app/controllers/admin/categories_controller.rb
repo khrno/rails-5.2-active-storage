@@ -12,7 +12,7 @@ class Admin::CategoriesController < Admin::BaseController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:success] = 'The cateogry was created!'
+      flash[:success] = 'The category was created!'
       redirect_to action: 'index'
     else
       render 'index'
