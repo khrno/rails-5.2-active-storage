@@ -8,4 +8,25 @@
       <a class="btn btn-primary btn-lg" href="<%= new_admin_post_path %>" role="button">Add</a>
     </p>
   </div>
+  <% @posts.in_groups_of(3, false).each do |group| %>
+    <div class="card-columns">
+      <% group.each do |post| %>
+        <div class="card bg-light mb-3">
+          <div class="card-body">
+            <h5 class="card-title"><%= post.title %></h5>
+            <p class="card-text">
+              <%= post.body %>
+            </p>
+            <span class="badge badge-primary">
+              <%= post.category.name%>
+            </span>
+          </div>
+          <div class="card-footer text-right">
+            <%= link_to '<i class="mi">edit</i>'.html_safe %>
+            <%= link_to '<i class="mi">delete</i>'.html_safe %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

@@ -1,4 +1,6 @@
 class Admin::PostsController < Admin::BaseController
+  before_action :load_posts, only: :index
+
   def index
   end
 
@@ -24,5 +26,9 @@ class Admin::PostsController < Admin::BaseController
 
   def current_tab
     @current_tab = 'posts'
+  end
+
+  def load_posts
+    @posts = Post.all
   end
 end

@@ -14,7 +14,11 @@
  *= require material_icons
  *= require_self
  */
- .container{
+ .container {
    margin-top: 100px;
  }
+
+.card-footer {
+  word-wrap: normal !important;
+}
  @import "bootstrap/scss/bootstrap";
