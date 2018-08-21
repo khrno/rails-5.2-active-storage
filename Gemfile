@@ -65,3 +65,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'figaro'
 gem 'material_icons'
 gem 'mini_magick'
+gem 'mini_mime', '1.0.0'
