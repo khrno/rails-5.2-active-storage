@@ -49,6 +49,4 @@ test:
 #
 production:
   <<: *default
-  database: myapp_production
-  username: myapp
-  password: p0W2YrsJ4W
+  database: myapp
