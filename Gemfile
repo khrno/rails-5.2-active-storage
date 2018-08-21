@@ -66,3 +66,5 @@ gem 'figaro'
 gem 'material_icons'
 gem 'mini_magick'
 gem 'mini_mime', '1.0.0'
+
+gem 'passenger'
